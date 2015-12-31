@@ -10,7 +10,7 @@
         const byte FULL_SENSOR_POSITION = 9;            // ( 0-10 )
         const byte EMPTY_SENSOR_POSITION = 2;
          
-         #define BUZZERENABLED  //comment to disable buzzer
+         #define BUZZERENABLED  //comment this line to disable buzzer
         
         //---
         const byte MAX7219_REG_NOOP        = 0x0;
