@@ -6,34 +6,6 @@ LogicImplementer::LogicImplementer(){
         //Serial.println("LogicImplementer CREATED");
 }
 //---------------------------------------------------------
-     void LogicImplementer::setInValve(bool newState){
-          word_.setBit(10,newState);
-          updateOutputs();
-      }
-     //--------------------------------
-     void LogicImplementer::setOutValve(bool newState){
-          word_.setBit(11,newState);
-          updateOutputs();
-      }
-     //--------------------------------
-     void LogicImplementer::reqHighLevelSensorOutput(){
-          
-      }
-     //--------------------------------
-     void LogicImplementer::reqLowLevelSensorOutput(){
-          
-      }
-     //--------------------------------
-     void LogicImplementer::setMixerState(bool newState){
-          word_.setBit(15,newState);
-          updateOutputs();
-      }
-     //--------------------------------
-     void LogicImplementer::setHeaterState(bool newState){
-          word_.setBit(14,newState);
-          updateOutputs();
-      }
-//---------------------------------------------------------
 void LogicImplementer::initialize(){
       
       tempUpdater.setMode(REPEATING);
@@ -64,8 +36,11 @@ void LogicImplementer::setLogicImplementerInstance(LogicImplementer & core){
     LogicImplementer::logicImplementerInstance=&core;
  }
 //---------------------------------------------------------
-
-
+void LogicImplementer::setCurrentInputs(uint8_t inputsByte,int temperature){
+        Serial.println("CORE");
+        Serial.println(inputsByte,BIN);
+        Serial.println(temperature);  
+}
 //---------------------------------------------------------
 void LogicImplementer::levelUpdaterEvent(){
 

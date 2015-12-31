@@ -23,23 +23,13 @@ public:
      static void setLogicImplementerInstance(LogicImplementer& core);
      void initialize();
     
-     void setInValve(bool newState);    //true=open=on
-     void setOutValve(bool newState);   //false=closed=off
-     
-     void reqHighLevelSensorOutput();         //true=Liquid Detected
-     void reqLowLevelSensorOutput();          //false=iquid Not Detected
-     
-     void setMixerState(bool newState);   //true=operating
-     void setHeaterState(bool newState);  //false=not operating
-     
-     void reqTemperature();   //in degrees Celsius
-     
      static void levelUpdaterWrapper();
      static void tempUpdaterWrapper();
       
      void levelUpdaterEvent();
      void tempUpdaterEvent();
-     
+
+     void setCurrentInputs(uint8_t inputsByte,int temperature);
      void check();     
 
 private:
