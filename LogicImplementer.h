@@ -37,8 +37,12 @@ private:
 
             OutputsHandler* outputs_;
             //InputsHandler* inputs_;
-            void updateOutputs();
+            //void updateOutputs();
             
+            
+            uint8_t bool2Int(bool val);
+            bool int2Bool(int val);
+                        
             static LogicImplementer* logicImplementerInstance;
            
             MyTimer1 levelTimer, temperatureTimer;

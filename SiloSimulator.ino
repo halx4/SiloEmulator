@@ -54,7 +54,7 @@ void setup() {
         core.setLogicImplementerInstance(core);
         core.initialize();
 
-        uint16_t a=0;
+        
         while(1){
           /*  a=((a<<1)|1);
             outputs.setOutputs(a);
@@ -71,9 +71,9 @@ void setup() {
                outputs.setTemperature(sensors.getTempCByIndex(0));      
         */
         inputs.check();
-        //core.check();
+        core.check();
        
-        delay(200);
+        //delay(100);
         }
   
 
