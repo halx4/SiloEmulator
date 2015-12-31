@@ -42,7 +42,7 @@ void setup() {
         InputsHandler inputs; 
         OutputsHandler outputs;         
 
-       // inputs.setObserver(core);
+         inputs.setObserver(core);
          inputs.setDallasTemperature(sensors);
         
         outputs.setSerial2ParallelPins(OUT_dataPin,OUT_clockPin,OUT_latchPin,OUT_buzzerPin);
@@ -71,7 +71,9 @@ void setup() {
                outputs.setTemperature(sensors.getTempCByIndex(0));      
         */
         inputs.check();
-        delay(500);
+        //core.check();
+       
+        delay(200);
         }
   
 

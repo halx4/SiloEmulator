@@ -3,22 +3,28 @@
 
 
 LogicImplementer::LogicImplementer(){
-        //Serial.println("LogicImplementer CREATED");
+      //Serial.println("LogicImplementer CREATED");
 }
 //---------------------------------------------------------
 void LogicImplementer::initialize(){
       
-      tempUpdater.setMode(REPEATING);
-      tempUpdater.setIntervalMinutes(TIME_TO_INCREASE_1_DEG_MS); 
-      tempUpdater.setCallback(LogicImplementer::tempUpdaterWrapper);
+      temperatureTimer.setMode(REPEATING);
+      temperatureTimer.setInterval(TIME_TO_INCREASE_1_DEG_MS); 
+      temperatureTimer.setCallback(LogicImplementer::temperatureTimerWrapper);
       
-      levelUpdater.setMode(REPEATING);
-      levelUpdater.setIntervalMinutes(TIME_TO_INCREASE_LIQUID_LEVEL_MS);
-      levelUpdater.setCallback(LogicImplementer::levelUpdaterWrapper);
+      levelTimer.setMode(REPEATING);
+      levelTimer.setInterval(TIME_TO_INCREASE_LIQUID_LEVEL_MS);
+      levelTimer.setCallback(LogicImplementer::levelTimerWrapper);
 
-      word_.setWord(0);
-      (*outputs_).setOutputs(word_.getWord());
-      //TODO INITIALIZE LEVEL SENSORS
+      currentState.setWord(0);
+      //Serial.print("word is ");Serial.println(currentState.getWord(),BIN);
+      //previousState.setWord(0);
+      previousTemperature=0;
+      //(*outputs_).setOutputs(word_.getWord());
+
+     // temperatureTimer.setEnabled(true);
+     // levelTimer.setEnabled(true);
+      
 }  
 //---------------------------------------------------------
 void LogicImplementer::setOutputsHandler(OutputsHandler & outputs){
@@ -26,52 +32,56 @@ void LogicImplementer::setOutputsHandler(OutputsHandler & outputs){
 
 }  
 //---------------------------------------------------------
-//void LogicImplementer::setInputsHandler(InputsHandler & inputs){
-//  inputs_=&inputs;
-
-//}  
-//---------------------------------------------------------
 void LogicImplementer::setLogicImplementerInstance(LogicImplementer & core){
     
     LogicImplementer::logicImplementerInstance=&core;
  }
 //---------------------------------------------------------
-void LogicImplementer::setCurrentInputs(uint8_t inputsByte,int temperature){
-        Serial.println("CORE");
-        Serial.println(inputsByte,BIN);
-        Serial.println(temperature);  
-}
-//---------------------------------------------------------
-void LogicImplementer::levelUpdaterEvent(){
+void LogicImplementer::setCurrentInputs(uint8_t inputsByte, uint8_t temperature){
+        bool changedFlag=false;
+        
+        if(previousTemperature!=temperature){
+                previousTemperature=temperature;
+                (*outputs_).setTemperature(temperature);
+        }
 
-         
+       // if()
         
-        
-}
-//---------------------------------------------------------
-void LogicImplementer::tempUpdaterEvent(){
+
 
         
 }
 //---------------------------------------------------------
+void LogicImplementer::levelTimerEvent(){
 
-void LogicImplementer::tempUpdaterWrapper(){
-        (*LogicImplementer::logicImplementerInstance).tempUpdaterEvent();    
+         Serial.println("levelTimerEvent");
+        
+        
+}
+//---------------------------------------------------------
+void LogicImplementer::temperatureTimerEvent(){
+
+         Serial.println("temperatureTimerEvent");
 }
 //---------------------------------------------------------
 
-void LogicImplementer::levelUpdaterWrapper(){
-        (*LogicImplementer::logicImplementerInstance).levelUpdaterEvent();    
+void LogicImplementer::temperatureTimerWrapper(){
+        (*LogicImplementer::logicImplementerInstance).temperatureTimerEvent();    
+}
+//---------------------------------------------------------
+
+void LogicImplementer::levelTimerWrapper(){
+        (*LogicImplementer::logicImplementerInstance).levelTimerEvent();    
 }
 //---------------------------------------------------------
 void LogicImplementer::updateOutputs(){
-  (*outputs_).setOutputs(word_.getWord());
+ // (*outputs_).setOutputs(word_.getWord());   //TODO
   }
 //---------------------------------------------------------
 void LogicImplementer::check(){
 
-    tempUpdater.check();
-    levelUpdater.check();
+    temperatureTimer.check();
+    levelTimer.check();
 }
 
 //----------------------------------------------------------

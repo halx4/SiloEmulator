@@ -8,7 +8,7 @@ IOWord::IOWord(){
 }
 //-------------------------------
 void IOWord::setBit(int bitNo,bool newState){
-
+       
         unsigned int newValue;
         if(newState)newValue=1; else newValue=0;
         

@@ -29,7 +29,8 @@ void InputsHandler::check(){
         //Serial.println(inputsByte,BIN);
 
         (*thermometer_).requestTemperatures(); //blocking function
-        int currentTemp=(*thermometer_).getTempCByIndex(0);
+        uint16_t currentTemp=(*thermometer_).getTempCByIndex(0);
+        if(currentTemp>255)currentTemp=255;
         //Serial.println(currentTemp,BIN);
 
         (*core_).setCurrentInputs(inputsByte,currentTemp);

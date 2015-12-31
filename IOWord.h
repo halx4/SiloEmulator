@@ -9,7 +9,8 @@ class IOWord {
 
         struct Bits
         {
-                unsigned    b0:1,
+                unsigned    
+                            b0:1,
                             b1:1,
                             b2:1,
                             b3:1, 

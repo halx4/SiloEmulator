@@ -5,6 +5,7 @@
 #include "OutputsHandler.h"
 #include "MyTimer1.h"
 #include "IOWord.h"
+#include "LiquidLevel.h"
 //#include "InputsHandler.h"
 //class OutputsHandler;
 //class InputsHandler;
@@ -16,32 +17,36 @@
 class LogicImplementer {
 
 public:
-     LogicImplementer();
-     
-     void setOutputsHandler(OutputsHandler& outputs);
-     //void setInputsHandler(InputsHandler& inputs);
-     static void setLogicImplementerInstance(LogicImplementer& core);
-     void initialize();
-    
-     static void levelUpdaterWrapper();
-     static void tempUpdaterWrapper();
-      
-     void levelUpdaterEvent();
-     void tempUpdaterEvent();
-
-     void setCurrentInputs(uint8_t inputsByte,int temperature);
-     void check();     
+             LogicImplementer();
+             
+             void setOutputsHandler(OutputsHandler& outputs);
+             //void setInputsHandler(InputsHandler& inputs);
+             static void setLogicImplementerInstance(LogicImplementer& core);
+             void initialize();
+            
+             static void levelTimerWrapper();
+             static void temperatureTimerWrapper();
+              
+             void levelTimerEvent();
+             void temperatureTimerEvent();
+        
+             void setCurrentInputs(uint8_t inputsByte,uint8_t temperature);
+             void check();     
 
 private:
 
-    OutputsHandler* outputs_;
-    //InputsHandler* inputs_;
-    void updateOutputs();
+            OutputsHandler* outputs_;
+            //InputsHandler* inputs_;
+            void updateOutputs();
+            
+            static LogicImplementer* logicImplementerInstance;
+           
+            MyTimer1 levelTimer, temperatureTimer;
+            IOWord currentState;//,previousState;
+
+            LiquidLevel liquidLevel;
+            uint8_t previousTemperature;
     
-    static LogicImplementer* logicImplementerInstance;
-   
-    MyTimer1 levelUpdater, tempUpdater;
-    IOWord word_;
 };
 
 #endif
