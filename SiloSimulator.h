@@ -25,7 +25,13 @@
         const byte OUT_clockPin = 8;
         const byte OUT_latchPin = 9;
         const byte OUT_buzzerPin=6;
+        
         const byte ONE_WIRE_BUS=2;
+
+        const byte IN_heaterPin=A0;
+        const byte IN_mixerPin=A1;
+        const byte IN_OutValvePin=A2;
+        const byte IN_InValvePin=A3;
 
          
 #endif

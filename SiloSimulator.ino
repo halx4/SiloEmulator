@@ -1,6 +1,6 @@
 #include "SiloSimulator.h"
 #include "LogicImplementer.h"
-//#include "InputsHandler.h"
+#include "InputsHandler.h"
 #include "OutputsHandler.h"
 #include <OneWire.h>
 #include <DallasTemperature.h>
@@ -23,14 +23,23 @@ void setup() {
         pinMode(OUT_clockPin, OUTPUT);  
         pinMode(OUT_latchPin, OUTPUT);
         pinMode(OUT_buzzerPin, OUTPUT);  
-        
 
+        pinMode(IN_heaterPin,INPUT);
+        pinMode(IN_mixerPin,INPUT);
+        pinMode(IN_OutValvePin,INPUT);
+        pinMode(IN_InValvePin,INPUT);
+
+        digitalWrite(IN_heaterPin,HIGH);
+        digitalWrite(IN_mixerPin,HIGH);
+        digitalWrite(IN_OutValvePin,HIGH);
+        digitalWrite(IN_InValvePin,HIGH);
+        
         // SPI.begin ();
           sensors.begin();
           sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
         
         LogicImplementer core;
-        //InputsHandler inputs; 
+        InputsHandler inputs; 
         OutputsHandler outputs;         
 
        // inputs.setObserver(core);
@@ -46,7 +55,7 @@ void setup() {
 
         uint16_t a=0;
         while(1){
-            a=((a<<1)|1);
+          /*  a=((a<<1)|1);
             outputs.setOutputs(a);
            
            // delay(500);
@@ -59,6 +68,9 @@ void setup() {
            Serial.print("Temperature for Device 1 is: ");
            //Serial.print(sensors.getTempCByIndex(0));
                outputs.setTemperature(sensors.getTempCByIndex(0));      
+        */
+        inputs.check();
+        delay(500);
         }
   
 
