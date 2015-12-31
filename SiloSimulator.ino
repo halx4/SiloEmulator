@@ -4,18 +4,12 @@
 #include "OutputsHandler.h"
 #include <OneWire.h>
 #include <DallasTemperature.h>
-
 #include <SPI.h>
 
 
-const int OUT_dataPin = 7; 
-const int OUT_clockPin = 8;
-const int OUT_latchPin = 9;
-const int OUT_buzzerPin=6;
-const int ONE_WIRE_BUS=2;
+
 
 OneWire oneWire(ONE_WIRE_BUS);
-
 // Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
 //--------------------------------------
@@ -31,32 +25,27 @@ void setup() {
         pinMode(OUT_buzzerPin, OUTPUT);  
         
 
-       // SPI.begin ();
+        // SPI.begin ();
           sensors.begin();
-        // sensors.setResolution(9);
+          sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
+        
         LogicImplementer core;
         //InputsHandler inputs; 
         OutputsHandler outputs;         
-        
-        //inputs.setLatchPin(LATCH);
-        //inputs.setTM1638Module(tm1638Module);
+
        // inputs.setObserver(core);
         
-
         outputs.setSerial2ParallelPins(OUT_dataPin,OUT_clockPin,OUT_latchPin,OUT_buzzerPin);
         outputs.initialize();
-        //outputs.setTM1638Module(tm1638Module);
         //OutputsHandler::setOutputsHandlerInstance(outputs);
-        
-        
+
         core.setOutputsHandler(outputs);   
        // core.setInputsHandler(inputs);
         core.setLogicImplementerInstance(core);
         core.initialize();
 
-       // //Serial.println("end main initialization");
         uint16_t a=0;
-      while(1){
+        while(1){
             a=((a<<1)|1);
             outputs.setOutputs(a);
            
