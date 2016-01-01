@@ -2,7 +2,7 @@
 #define SILOSIMULATOR
 
         #include <Arduino.h>
-        //THERMOMETER SIMULATED VERSION
+        
         //---
          const int TIME_TO_INCREASE_1_DEG_MS = 500; //ms time to increase or decrease temperature 1 deg celsius 
          const int TIME_TO_INCREASE_LIQUID_LEVEL_MS = 800; //time in ms to increase or decrease 1 level of liquid in the tank
@@ -11,8 +11,7 @@
         const byte EMPTY_SENSOR_POSITION = 2;
          
          #define BUZZERENABLED  //comment this line to disable buzzer
-
-        const byte DEFAULT_TEMPERATURE = 25;
+        
         //---
         const byte MAX7219_REG_NOOP        = 0x0;
         // codes 1 to 8 are digit positions 1 to 8

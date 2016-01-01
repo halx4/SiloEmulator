@@ -19,7 +19,7 @@ void LogicImplementer::initialize(){
       currentState.setWord(0);
       //Serial.print("word is ");Serial.println(currentState.getWord(),BIN);
       //previousState.setWord(0);
-      temperature=DEFAULT_TEMPERATURE;
+      previousTemperature=0;
       //(*outputs_).setOutputs(word_.getWord());
 
       temperatureTimer.setEnabled(true);
@@ -37,10 +37,13 @@ void LogicImplementer::setLogicImplementerInstance(LogicImplementer & core){
     LogicImplementer::logicImplementerInstance=&core;
  }
 //---------------------------------------------------------
-void LogicImplementer::setCurrentInputs(uint8_t inputsByte){
+void LogicImplementer::setCurrentInputs(uint8_t inputsByte, uint8_t temperature){
         bool changedFlag=false;
-
-
+        
+        if(previousTemperature!=temperature){
+                previousTemperature=temperature;
+                (*outputs_).setTemperature(temperature);
+        }
 
        if(  int2Bool((inputsByte>>0)&1)   != currentState.getBit(14) ){
                // Serial.println("HEATER STATE CHANGE");
@@ -62,7 +65,7 @@ void LogicImplementer::setCurrentInputs(uint8_t inputsByte){
                 currentState.setBit(10, int2Bool((inputsByte>>3)&1)   );
                 changedFlag=true;
        }
-       
+
         if(changedFlag){ //change has been detected. refresh outputs
                 (*outputs_).setOutputs(currentState.getWord()); 
         }
@@ -74,8 +77,6 @@ void LogicImplementer::levelTimerEvent(){
 
          //Serial.println("levelTimerEvent");
          if(currentState.getBit(10) && !(currentState.getBit(11))){  //if inValve(10) is open AND outValve(11) is closed then
-                        temperature=DEFAULT_TEMPERATURE;
-                        (*outputs_).setTemperature(temperature);
                        liquidLevel.LLIncrease();
          }
         if(currentState.getBit(11) && !(currentState.getBit(10))){
@@ -97,12 +98,8 @@ void LogicImplementer::levelTimerEvent(){
 }
 //---------------------------------------------------------
 void LogicImplementer::temperatureTimerEvent(){
-        //TODO
+
          //Serial.println("temperatureTimerEvent");
-                if(currentState.getBit(14) && !(currentState.getBit(10))){    // if    (    (heater is on)    AND    (in-valve is off)    )
-                        temperature++;
-                        (*outputs_).setTemperature(temperature);
-                }
 }
 //---------------------------------------------------------
 
