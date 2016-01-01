@@ -2,7 +2,7 @@
 #define SILOSIMULATOR
 
         #include <Arduino.h>
-        //WHERE ARE WE?
+        //THERMOMETER SIMULATED VERSION
         //---
          const int TIME_TO_INCREASE_1_DEG_MS = 500; //ms time to increase or decrease temperature 1 deg celsius 
          const int TIME_TO_INCREASE_LIQUID_LEVEL_MS = 800; //time in ms to increase or decrease 1 level of liquid in the tank
