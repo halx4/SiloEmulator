@@ -37,16 +37,14 @@ void setup() {
         // SPI.begin ();
         sensors.begin();
         sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
-
         
         LogicImplementer core;
         InputsHandler inputs; 
         OutputsHandler outputs;         
 
-
-         inputs.setObserver(core);
-         inputs.setDallasTemperature(sensors);
-
+        inputs.setObserver(core);
+        inputs.setDallasTemperature(sensors);
+        
         outputs.setSerial2ParallelPins(OUT_dataPin,OUT_clockPin,OUT_latchPin,OUT_buzzerPin);
         outputs.initialize();
         //OutputsHandler::setOutputsHandlerInstance(outputs);
