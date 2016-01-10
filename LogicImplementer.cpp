@@ -74,8 +74,10 @@ void LogicImplementer::levelTimerEvent(){
 
          //Serial.println("levelTimerEvent");
          if(currentState.getBit(10) && !(currentState.getBit(11))){  //if inValve(10) is open AND outValve(11) is closed then
-                        temperature=DEFAULT_TEMPERATURE;
-                        (*outputs_).setTemperature(temperature);
+                        if(temperature != DEFAULT_TEMPERATURE){
+                                temperature=DEFAULT_TEMPERATURE;
+                                (*outputs_).setTemperature(temperature);
+                        }
                        liquidLevel.LLIncrease();
          }
         if(currentState.getBit(11) && !(currentState.getBit(10))){
