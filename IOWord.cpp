@@ -3,7 +3,8 @@
 
 IOWord::IOWord(){
         setWord(0);
-                
+        //Serial.println("IOWord CREATED");
+        
 }
 //-------------------------------
 void IOWord::setBit(int bitNo,bool newState){

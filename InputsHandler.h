@@ -25,7 +25,8 @@ private:
 
         LogicImplementer* core_;
         DallasTemperature* thermometer_;
-       
+        
+       // IOWord ioword;
         
 };
 

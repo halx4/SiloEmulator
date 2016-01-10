@@ -35,32 +35,45 @@ void setup() {
         digitalWrite(IN_InValvePin,HIGH);
         
         // SPI.begin ();
-        sensors.begin();
-        sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
+          sensors.begin();
+          sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
         
         LogicImplementer core;
         InputsHandler inputs; 
         OutputsHandler outputs;         
 
-        inputs.setObserver(core);
-        inputs.setDallasTemperature(sensors);
+         inputs.setObserver(core);
+         inputs.setDallasTemperature(sensors);
         
         outputs.setSerial2ParallelPins(OUT_dataPin,OUT_clockPin,OUT_latchPin,OUT_buzzerPin);
         outputs.initialize();
         //OutputsHandler::setOutputsHandlerInstance(outputs);
 
         core.setOutputsHandler(outputs);   
-        // core.setInputsHandler(inputs);
+       // core.setInputsHandler(inputs);
         core.setLogicImplementerInstance(core);
         core.initialize();
 
         
         while(1){
-
-                inputs.check();
-                core.check();
-               
-                //delay(100);
+          /*  a=((a<<1)|1);
+            outputs.setOutputs(a);
+           
+           // delay(500);
+            
+            if(a==65535)a=0;
+                Serial.print("starting");
+            sensors.requestTemperatures(); // Send the command to get temperatures
+            Serial.println("DONE");
+            
+           Serial.print("Temperature for Device 1 is: ");
+           //Serial.print(sensors.getTempCByIndex(0));
+               outputs.setTemperature(sensors.getTempCByIndex(0));      
+        */
+        inputs.check();
+        core.check();
+       
+        //delay(100);
         }
   
 
