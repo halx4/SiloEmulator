@@ -52,6 +52,10 @@ void OutputsHandler::setTemperature(int temperature){
          c -= '0';
        sendByte (digit + 1, c);  
        }   
+
+       Serial.print("T=");
+       Serial.print(temperature);
+       Serial.print("\n");
   } 
 /*
 
