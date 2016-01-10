@@ -6,12 +6,6 @@
 #include "MyTimer1.h"
 #include "IOWord.h"
 #include "LiquidLevel.h"
-//#include "InputsHandler.h"
-//class OutputsHandler;
-//class InputsHandler;
-
-//class InputsHandler;
-
 
 
 class LogicImplementer {
@@ -20,7 +14,7 @@ public:
              LogicImplementer();
              
              void setOutputsHandler(OutputsHandler& outputs);
-             //void setInputsHandler(InputsHandler& inputs);
+             
              static void setLogicImplementerInstance(LogicImplementer& core);
              void initialize();
             
@@ -30,26 +24,24 @@ public:
              void levelTimerEvent();
              void temperatureTimerEvent();
         
-             void setCurrentInputs(uint8_t inputsByte,uint8_t temperature);
+             void setCurrentInputs(uint8_t inputsByte);
              void check();     
 
 private:
 
             OutputsHandler* outputs_;
-            //InputsHandler* inputs_;
-            //void updateOutputs();
+
             
-            
-            uint8_t bool2Int(bool val);
+            uint8_t bool2Int(bool val); //TODO remove it
             bool int2Bool(int val);
                         
             static LogicImplementer* logicImplementerInstance;
            
             MyTimer1 levelTimer, temperatureTimer;
-            IOWord currentState;//,previousState;
+            IOWord currentState;
 
             LiquidLevel liquidLevel;
-            uint8_t previousTemperature;
+            uint8_t temperature;
     
 };
 

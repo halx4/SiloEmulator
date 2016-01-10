@@ -2,16 +2,16 @@
 #include "LogicImplementer.h"
 #include "InputsHandler.h"
 #include "OutputsHandler.h"
-#include <OneWire.h>
-#include <DallasTemperature.h>
+//#include <OneWire.h>
+//#include <DallasTemperature.h>
 #include <SPI.h>
 
 
 
 
-OneWire oneWire(ONE_WIRE_BUS);
+//OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature. 
-DallasTemperature sensors(&oneWire);
+//DallasTemperature sensors(&oneWire);
 //--------------------------------------
 void setup() {
         
@@ -35,15 +35,15 @@ void setup() {
         digitalWrite(IN_InValvePin,HIGH);
         
         // SPI.begin ();
-          sensors.begin();
-          sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
+         // sensors.begin();
+       //   sensors.setResolution(9);   //DS18B20 resolution (9-12 bits)
         
         LogicImplementer core;
         InputsHandler inputs; 
         OutputsHandler outputs;         
 
          inputs.setObserver(core);
-         inputs.setDallasTemperature(sensors);
+         //inputs.setDallasTemperature(sensors);
         
         outputs.setSerial2ParallelPins(OUT_dataPin,OUT_clockPin,OUT_latchPin,OUT_buzzerPin);
         outputs.initialize();

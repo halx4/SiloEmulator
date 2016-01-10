@@ -11,7 +11,8 @@
         const byte EMPTY_SENSOR_POSITION = 2;
          
          #define BUZZERENABLED  //comment this line to disable buzzer
-        
+
+        const byte DEFAULT_TEMPERATURE = 25;
         //---
         const byte MAX7219_REG_NOOP        = 0x0;
         // codes 1 to 8 are digit positions 1 to 8
