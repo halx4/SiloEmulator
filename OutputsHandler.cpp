@@ -38,20 +38,25 @@ void OutputsHandler::sendByte (const byte reg, const byte data){
 //------------------------
 void OutputsHandler::setTemperature(int temperature){
   
- 
-     char buf [3];
-     sprintf (buf, "%2i", min (max (temperature, 0), 99));
-     
-     // send all 2 digits
-     for (byte digit = 0; digit < 2; digit++)
-       {
-       byte c = buf [digit];
-       if (c == ' ' )
-         c = 0xF;  // code for a blank
-       else
-         c -= '0';
-       sendByte (digit + 1, c);  
-       }   
+         
+             char buf [3];
+             sprintf (buf, "%2i", min (max (temperature, 0), 99));
+             
+             // send all 2 digits
+             for (byte digit = 0; digit < 2; digit++)
+               {
+               byte c = buf [digit];
+               if (c == ' ' )
+                 c = 0xF;  // code for a blank
+               else
+                 c -= '0';
+               sendByte (digit + 1, c);  
+               } 
+
+              Serial.print("T=");
+              Serial.print(temperature);
+              Serial.print("\n");
+              
   } 
 /*
 
