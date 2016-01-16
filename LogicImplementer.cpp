@@ -20,7 +20,10 @@ void LogicImplementer::initialize(){
       //Serial.print("word is ");Serial.println(currentState.getWord(),BIN);
       //previousState.setWord(0);
       temperature=DEFAULT_TEMPERATURE;
-      //(*outputs_).setOutputs(word_.getWord());
+
+      
+      (*outputs_).setOutputs(currentState.getWord());
+       (*outputs_).setTemperature(temperature);
 
       temperatureTimer.setEnabled(true);
       levelTimer.setEnabled(true);
