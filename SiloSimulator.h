@@ -12,6 +12,7 @@
          
          #define BUZZERENABLED  //comment this line to disable buzzer
 
+        const byte TEMP_DISPLAY_LED_INTENSITY= 5; // 7 seg display intensity: range: 0 to 15
         const byte DEFAULT_TEMPERATURE = 25;
         //---
         const byte MAX7219_REG_NOOP        = 0x0;
