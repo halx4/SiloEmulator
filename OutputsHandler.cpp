@@ -21,7 +21,7 @@ void OutputsHandler::initialize(){
   sendByte (MAX7219_REG_SCANLIMIT, 1);      // show 4 digits
   sendByte (MAX7219_REG_DECODEMODE, 0xFF);  // use digits (not bit patterns)
   sendByte (MAX7219_REG_DISPLAYTEST, 0);    // no display test
-  sendByte (MAX7219_REG_INTENSITY, 7);      // character intensity: range: 0 to 15
+  sendByte (MAX7219_REG_INTENSITY, TEMP_DISPLAY_LED_INTENSITY);      // character intensity: range: 0 to 15
   sendByte (MAX7219_REG_SHUTDOWN, 1);       // not in shutdown mode (ie. start it up)
             
     
