@@ -17,7 +17,7 @@ void setup() {
         
         Serial.begin(9600);
         delay(1000);
-        Serial.println("BEGIN");
+        //Serial.println("BEGIN");
             
         pinMode(OUT_dataPin, OUTPUT);
         pinMode(OUT_clockPin, OUTPUT);  
