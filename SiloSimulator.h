@@ -9,8 +9,9 @@
 
         const byte FULL_SENSOR_POSITION = 9;            // ( 0-10 )
         const byte EMPTY_SENSOR_POSITION = 2;
-         
-         #define BUZZERENABLED  //comment this line to disable buzzer
+
+        //comment this line to disable buzzer
+        // #define BUZZERENABLED 
 
         const byte TEMP_DISPLAY_LED_INTENSITY= 5; // 7 seg display intensity: range: 0 to 15
         //---
