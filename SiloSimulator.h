@@ -4,7 +4,7 @@
         #include <Arduino.h>
         //THERMOMETER SIMULATED VERSION
         //---
-         const int TIME_TO_INCREASE_1_DEG_MS = 500; //ms time to increase or decrease temperature 1 deg celsius 
+         const int TIME_TO_INCREASE_1_DEG_MS = 1000; //ms time to increase or decrease temperature 1 deg celsius 
          const int TIME_TO_INCREASE_LIQUID_LEVEL_MS = 800; //time in ms to increase or decrease 1 level of liquid in the tank
 
         const byte FULL_SENSOR_POSITION = 9;            // ( 0-10 )
