@@ -4,7 +4,6 @@
 MyTimer1::MyTimer1(){
     enabled=false;
     mode=ONETIME;
-    //Serial.println("MyTimer1 CONSTRUCTOR");
 }        
 //----------------------------
 void MyTimer1::setEnabled(bool en){

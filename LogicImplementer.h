@@ -1,7 +1,7 @@
 #ifndef LOGICIMPLEMENTER
 #define LOGICIMPLEMENTER
 
-#include "SiloSimulator.h"
+#include "SiloEmulator.h"
 #include "OutputsHandler.h"
 #include "MyTimer1.h"
 #include "IOWord.h"

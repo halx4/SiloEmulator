@@ -1,9 +1,8 @@
-//#include "InputsHandler.h"
 #include "LogicImplementer.h"
 
 
 LogicImplementer::LogicImplementer(){
-      //Serial.println("LogicImplementer CREATED");
+    
 }
 //---------------------------------------------------------
 void LogicImplementer::initialize(){
@@ -17,8 +16,7 @@ void LogicImplementer::initialize(){
       levelTimer.setCallback(LogicImplementer::levelTimerWrapper);
 
       currentState.setWord(0);
-      //Serial.print("word is ");Serial.println(currentState.getWord(),BIN);
-      //previousState.setWord(0);
+
       temperature=DEFAULT_TEMPERATURE;
 
       

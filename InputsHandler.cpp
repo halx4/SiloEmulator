@@ -4,12 +4,12 @@
 
 
 InputsHandler::InputsHandler(){
-        //Serial.println("InputsHandler CREATED");
+
 
 }
 //------------------------------------
 void InputsHandler::setObserver(LogicImplementer & core){
-        //Serial.println("InputsHandler::setObserver ran");
+  
         core_=&core; 
 
 }      

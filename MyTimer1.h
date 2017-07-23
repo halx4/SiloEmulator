@@ -2,7 +2,6 @@
 #define MYTIMER1_H
 
 #include <Arduino.h>
-//#include "OutputsHandler.h"
 
 class OutputsHandler;
 
@@ -11,7 +10,6 @@ enum TIMER_MODE { ONETIME=0, REPEATING};
 
 class MyTimer1 {
     public:
-        // constructor
         MyTimer1(); 
         
         void setEnabled(bool en);

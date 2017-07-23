@@ -1,5 +1,5 @@
-#ifndef SILOSIMULATOR
-#define SILOSIMULATOR
+#ifndef SILOEMULATOR
+#define SILOEMULATOR
 
         #include <Arduino.h>
         //THERMOMETER SIMULATED VERSION
