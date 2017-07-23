@@ -1,4 +1,4 @@
-#include "SiloSimulator.h"
+#include "SiloEmulator.h"
 #include "LogicImplementer.h"
 #include "InputsHandler.h"
 #include "OutputsHandler.h"
@@ -17,7 +17,7 @@ void setup() {
         
         Serial.begin(9600);
         delay(1000);
-        //Serial.println("BEGIN");
+
             
         pinMode(OUT_dataPin, OUTPUT);
         pinMode(OUT_clockPin, OUTPUT);  

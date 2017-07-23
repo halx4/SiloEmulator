@@ -1,7 +1,7 @@
 #ifndef INPUTSHANDLER
 #define INPUTSHANDLER
 
-#include "SiloSimulator.h"
+#include "SiloEmulator.h"
 #include "IOWord.h"
 #include <DallasTemperature.h>
 
