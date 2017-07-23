@@ -1,17 +1,11 @@
 #ifndef LOGICIMPLEMENTER
 #define LOGICIMPLEMENTER
 
-#include "SiloSimulator.h"
+#include "SiloEmulator.h"
 #include "OutputsHandler.h"
 #include "MyTimer1.h"
 #include "IOWord.h"
 #include "LiquidLevel.h"
-//#include "InputsHandler.h"
-//class OutputsHandler;
-//class InputsHandler;
-
-//class InputsHandler;
-
 
 
 class LogicImplementer {

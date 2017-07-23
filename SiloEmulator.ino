@@ -1,4 +1,4 @@
-#include "SiloSimulator.h"
+#include "SiloEmulator.h"
 #include "LogicImplementer.h"
 #include "InputsHandler.h"
 #include "OutputsHandler.h"

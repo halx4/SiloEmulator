@@ -1,9 +1,9 @@
-//#include "InputsHandler.h"
+
 #include "LogicImplementer.h"
 
 
 LogicImplementer::LogicImplementer(){
-      //Serial.println("LogicImplementer CREATED");
+
 }
 //---------------------------------------------------------
 void LogicImplementer::initialize(){

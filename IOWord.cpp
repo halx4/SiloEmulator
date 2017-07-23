@@ -3,7 +3,7 @@
 
 IOWord::IOWord(){
         setWord(0);
-        //Serial.println("IOWord CREATED");
+
         
 }
 //-------------------------------

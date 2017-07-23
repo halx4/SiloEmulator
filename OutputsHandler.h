@@ -2,10 +2,7 @@
 #define OUTPUTSHANDLER
 
 #include <Arduino.h>
-#include "SiloSimulator.h"
-//#include "IOWord.h"
-//#include <TM1638.h>
-//#include "MyTimer1.h"
+#include "SiloEmulator.h"
 #include <SPI.h>
 
 class OutputsHandler {
