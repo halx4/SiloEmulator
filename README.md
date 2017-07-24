@@ -1,4 +1,4 @@
-__Master Branch is not used in this repo. Use the rest branches instead.__
+__Master Branch is not used in this repo. Actual code is in the other branches.__
 
 ## Silo Emulator Overview
 
