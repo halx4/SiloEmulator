@@ -60,6 +60,10 @@ There are two flavors of the firmware, with slightly different functionality bet
  - THERMOMETER ENABLED VERSION (thermometerEnabled brach)
     - Temperature indication is generated after obtaining actual measurement from the thermometer
 
+### External dependencies
+Please import these libraries before compiling the firmware:
+- [TimingUtils](https://github.com/halx4/TimingUtils)
+- [BittyStructures](https://github.com/halx4/BittyStructures)
 
 
 [liqueur plant case study]: https://sites.google.com/site/uml4iot/liqueur-plant-case-study
