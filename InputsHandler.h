@@ -2,7 +2,6 @@
 #define INPUTSHANDLER
 
 #include "SiloEmulator.h"
-#include "IOWord.h"
 
 class LogicImplementer;
 
