@@ -3,8 +3,8 @@
 
 #include "SiloEmulator.h"
 #include "OutputsHandler.h"
-#include "MyTimer1.h"
-#include "IOWord.h"
+#include <CbTimer.h>
+#include <BittyWord.h>
 #include "LiquidLevel.h"
 
 
@@ -40,8 +40,8 @@ private:
                         
             static LogicImplementer* logicImplementerInstance;
            
-            MyTimer1 levelTimer, temperatureTimer;
-            IOWord currentState;//,previousState;
+            CbTimer levelTimer, temperatureTimer;
+            BittyWord currentState;//,previousState;
 
             LiquidLevel liquidLevel;
             uint8_t previousTemperature;
